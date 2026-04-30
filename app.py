@@ -5,6 +5,22 @@ import os
 
 app = Flask(__name__)
 
+# ✅ DB create automatically
+def init_db():
+    conn = sqlite3.connect("chatbot.db")
+    cursor = conn.cursor()
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS chats (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        question TEXT,
+        answer TEXT
+    )
+    """)
+    conn.commit()
+    conn.close()
+
+init_db()
+
 @app.route("/")
 def home():
     return render_template("index.html")
