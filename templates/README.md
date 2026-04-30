@@ -8,4 +8,4 @@ A simple chatbot built using Flask.
 - Admin panel
 
 ## Live Demo
-paste your railway link here
+https://college-chatbox-production.up.railway.app/
